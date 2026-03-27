@@ -26,8 +26,8 @@ const Navbar = () => {
         </Link>
 
         <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
-          <Link to="/" style={{ color: 'var(--text-main)', textDecoration: 'none', fontWeight: '500', fontSize: '0.95rem' }}>Explore</Link>
-          <Link to="/" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.95rem' }}>Resources</Link>
+          <Link to="/" className="hide-mobile" style={{ color: 'var(--text-main)', textDecoration: 'none', fontWeight: '500', fontSize: '0.95rem' }}>Explore</Link>
+          <Link to="/" className="hide-mobile" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.95rem' }}>Resources</Link>
           {user ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
               <Link to="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: 'var(--text-main)', fontWeight: '600' }}>

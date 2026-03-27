@@ -79,11 +79,11 @@ const Home = () => {
   };
 
   return (
-    <div className="container" style={{ paddingTop: '40px', display: 'grid', gridTemplateColumns: '280px 1fr', gap: '40px' }}>
+    <div className="container mobile-stack" style={{ paddingTop: '40px', display: 'flex', gap: '40px' }}>
       
       {/* Side Filters */}
-      <aside style={{ position: 'sticky', top: '100px', height: 'fit-content' }}>
-        <div className="glass" style={{ padding: '24px', borderRadius: '24px' }}>
+      <div className="hide-mobile" style={{ width: '300px', flexShrink: 0 }}>
+        <div className="glass" style={{ padding: '32px', borderRadius: '24px', position: 'sticky', top: '100px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
             <h3 style={{ fontSize: '1.2rem', fontWeight: '700' }}>Filters</h3>
             <button 
@@ -149,10 +149,10 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </aside>
+      </div>
 
       {/* Main Content */}
-      <main>
+      <main style={{ flex: 1 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '32px' }}>
           <div>
             <h1 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '8px' }}>
@@ -161,14 +161,13 @@ const Home = () => {
             <p style={{ color: 'var(--text-muted)', fontWeight: '500' }}>{hotels.length} luxury stays found in major cities</p>
           </div>
           
-          <div style={{ display: 'flex', gap: '12px' }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-muted)', alignSelf: 'center', marginRight: '8px' }}>SORT BY:</span>
+          <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '8px', WebkitOverflowScrolling: 'touch', maxWidth: '100%' }}>
             {['featured', 'priceLow', 'priceHigh', 'rating'].map(opt => (
               <button 
                 key={opt}
                 onClick={() => setSortBy(opt)}
                 className={`btn ${sortBy === opt ? 'btn-primary' : 'btn-secondary'}`}
-                style={{ padding: '8px 16px', fontSize: '0.85rem' }}
+                style={{ padding: '8px 16px', fontSize: '0.8rem', whiteSpace: 'nowrap', flexShrink: 0 }}
               >
                 {opt === 'priceLow' ? 'Price ↑' : opt === 'priceHigh' ? 'Price ↓' : opt.charAt(0).toUpperCase() + opt.slice(1)}
               </button>
@@ -177,7 +176,15 @@ const Home = () => {
         </div>
 
         {/* Global Search Bar with Calendar */}
-        <div className="glass" style={{ padding: '16px', borderRadius: '20px', marginBottom: '40px', display: 'flex', gap: '16px' }}>
+        <div className="glass mobile-stack" style={{ 
+            display: 'flex', 
+            background: 'white', 
+            borderRadius: '24px', 
+            padding: '12px', 
+            gap: '12px',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.1)',
+            border: '1px solid rgba(255,255,255,0.8)'
+          }}>
           <div style={{ flex: 2, position: 'relative' }}>
             <MapPin style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--primary)' }} size={20} />
             <input 
@@ -232,7 +239,7 @@ const Home = () => {
         {loading ? (
           <div style={{ textAlign: 'center', padding: '100px' }}>Loading premium collection...</div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '32px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '32px' }}>
             {hotels.map(h => (
               <Link to={`/hotel/${h.id}`} key={h.id} className="card animate-fade-in" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div style={{ position: 'relative', height: '240px' }}>
