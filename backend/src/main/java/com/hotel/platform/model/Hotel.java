@@ -20,4 +20,5 @@ public class Hotel {
     private String priceRange;
     private List<String> amenities;
     private List<String> images;
+    private Integer availableRooms;
 }

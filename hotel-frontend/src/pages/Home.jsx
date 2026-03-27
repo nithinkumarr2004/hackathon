@@ -275,6 +275,20 @@ const Home = () => {
                       Starting from <br />
                       <span style={{ fontSize: '1.5rem', color: 'var(--secondary)', fontWeight: '900' }}>₹{h.priceRange.split('-')[0]}</span>
                     </div>
+                    {/* Availability Badge */}
+                    <div style={{ position: 'absolute', bottom: '16px', right: '16px', zIndex: 10 }}>
+                      <span style={{ 
+                        background: h.availableRooms > 0 ? '#dcfce7' : '#fee2e2', 
+                        color: h.availableRooms > 0 ? '#166534' : '#991b1b', 
+                        padding: '6px 12px', 
+                        borderRadius: '20px', 
+                        fontSize: '0.75rem', 
+                        fontWeight: '700',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                      }}>
+                        {h.availableRooms > 0 ? `${h.availableRooms} Rooms Left` : 'Sold Out'}
+                      </span>
+                    </div>
                     <button className="btn btn-secondary" style={{ padding: '10px 24px' }}>Details</button>
                   </div>
                 </div>
