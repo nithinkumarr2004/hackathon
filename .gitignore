@@ -1,0 +1,17 @@
+# root .gitignore
+node_modules/
+target/
+.mvn/
+.idea/
+.vscode/
+*.log
+*.tmp
+.DS_Store
+backend/target/
+hotel-frontend/node_modules/
+hotel-frontend/dist/
+.env
+application.properties
+# (Optional) Keep application.properties if you want the user to see the URI, 
+# but usually it's ignored for security. 
+# However, for hackathon projects it's often included for ease of use.
